@@ -11,12 +11,11 @@
 #include "stdio.h"
 
 #include "main.h"
-    
 #include "inv_mpu.h"
 
 
 int main(void)
-{ 
-  
- 
+{
+	test();
+	// printf('%d',test());
 }

@@ -23,3 +23,7 @@
 #include <string.h>
 #include <math.h>
 #include "inv_mpu.h"
+
+void test(void) {
+	printf('Test Function');
+}
