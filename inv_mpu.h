@@ -21,7 +21,7 @@
 #ifndef _INV_MPU_H_
 #define _INV_MPU_H_
 
-void test(void);
+	void test2(void);
 
 // #define INV_X_GYRO      (0x40)
 // #define INV_Y_GYRO      (0x20)

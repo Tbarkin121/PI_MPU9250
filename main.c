@@ -14,14 +14,15 @@
 #include "inv_mpu.h"
 
 void test(void) {
-    printf("test 1");
+    printf("test 1 \n");
 }
-void test2(void) {
-    printf("test 2");
-}
+// void test2(void) {
+//     printf("test 2 \n");
+// }
+
 int main(void)
 {
 	test();
-    test2();
+	test2();
 	// printf('%d',test());
 }
