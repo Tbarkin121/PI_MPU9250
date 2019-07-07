@@ -13,6 +13,8 @@
 #include "main.h"
 #include "inv_mpu.h"
 
+#define maintest2 test2
+
 void test(void) {
     printf("test 1 \n");
 }
@@ -24,5 +26,6 @@ int main(void)
 {
 	test();
 	test2();
+	maintest2();
 	// printf('%d',test());
 }
