@@ -24,6 +24,5 @@ int main(void)
 {
 	test();
 	test2();
-	i2c_write();
 	// printf('%d',test());
 }

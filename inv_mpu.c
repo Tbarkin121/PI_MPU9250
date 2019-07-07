@@ -19,9 +19,11 @@
  */
 #include "stdio.h"
 #include "inv_mpu.h"
+#include "i2c_interface.h"
 
 #define i2c_write i2c_write_test
 
 void test2(void) {
 	printf("test 2 \n");
+	i2c_write();
 }
