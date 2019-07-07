@@ -20,6 +20,6 @@
 #include <stdio.h>
 #include "inv_mpu.h"
 
-void test(void) {
+void test2(void) {
 	printf('Test Function');
 }
