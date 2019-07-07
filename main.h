@@ -26,7 +26,9 @@
 /* Includes ------------------------------------------------------------------*/
 // #include "stm32f4xx.h"
 // #include "discover_board.h"
-// #include <stdio.h>
+#include <stdio.h>
+
+void test(void);
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
