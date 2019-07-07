@@ -1,4 +1,4 @@
 #!/bin/bash
 
-gcc main.c inv_mpu.c -o test_main
+gcc main.c inv_mpu.c i2c_interface.c -o test_main -lpigpio -lpthread
 ./test_main
