@@ -20,6 +20,7 @@
 #include "stdio.h"
 #include "inv_mpu.h"
 #include "i2c_interface.h"
+#include "math.h"
 
 #define i2c_write i2c_write_interface
 // #define i2c_read i2c_read_interface
@@ -38,8 +39,13 @@ void test2(void) {
 		delay_ms(1000);
 		printf("was that about a second? \n");
 		printf("testing tick: %u \n", get_ms());
+		log_i("log_i test");
+		log_e("log_e test");
 	}
 	printf("min test: %d \n",min(123,524));
-	
+
+	float abs_test = -12.4;
+	printf("fabs test: %f \n",fabs(abs_test));
+
 	// i2c_read();
 }
