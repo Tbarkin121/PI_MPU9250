@@ -9,20 +9,21 @@ int i2c_write_interface(unsigned char slave_addr, unsigned char reg_addr,
 
 	printf("I2C Write Test \n");
 
-	// int handle;
-	// unsigned char command[2];
-	// unsigned char value[4];
+	int handle;
+	unsigned char command[2];
+	unsigned char value[4];
 
-	// command[0] = 0x40;
-	// command[1] = 0x20;
+	command[0] = 0x40;
+	command[1] = 0x20;
 
-	// if (gpioInitialise() < 0) return 1;
-	// handle = i2cOpen(1, slave_addr, 0);
+	if (gpioInitialise() < 0) return 1;
+	handle = i2cOpen(1, slave_addr, 0);
 
 	// i2cWriteDevice(handle, data, length);
+	i2cWriteI2CBlockData(handle, reg_addr, *data, length)
 
-	// i2cClose(handle);
-	// gpioTerminate();
+	i2cClose(handle);
+	gpioTerminate();
 
 	return 0;
 }
