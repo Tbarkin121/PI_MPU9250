@@ -35,11 +35,15 @@
 
 void test2(void) {
 	printf("test 2 \n");
-	unsigned char data[2];
-	data[0] = 0x30;
-	data[1] = 0x60;
+	unsigned char data_write[2];
+	unsigned char data_read[2];
+	data_write[0] = 0x30;
+	data_write[1] = 0x60;
 
-	i2c_write(0x68, 0x00, 2, data);
+	i2c_write(0x68, 0x00, 2, data_write);
+	i2c_read(0x68, 0x00, 2, data_read);
+	printf("Data Write: %x \n",data_write)
+	printf("Data Read: %x \n",data_read)
 	for(int i = 0; i<5; i++){
 		delay_ms(1000);
 		printf("was that about a second? \n");
@@ -52,5 +56,4 @@ void test2(void) {
 	float abs_test = -12.4;
 	printf("fabs test: %f \n",fabs(abs_test));
 
-	// i2c_read();
 }
