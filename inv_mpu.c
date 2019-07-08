@@ -26,6 +26,6 @@
 
 void test2(void) {
 	printf("test 2 \n");
-	i2c_write();
+	i2c_write(0x68, 0x00, 2, unsigned char const *data);
 	// i2c_read();
 }
