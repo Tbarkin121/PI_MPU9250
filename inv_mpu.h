@@ -23,12 +23,12 @@
 
 	void test2(void);
 
-// #define INV_X_GYRO      (0x40)
-// #define INV_Y_GYRO      (0x20)
-// #define INV_Z_GYRO      (0x10)
-// #define INV_XYZ_GYRO    (INV_X_GYRO | INV_Y_GYRO | INV_Z_GYRO)
-// #define INV_XYZ_ACCEL   (0x08)
-// #define INV_XYZ_COMPASS (0x01)
+#define INV_X_GYRO      (0x40)
+#define INV_Y_GYRO      (0x20)
+#define INV_Z_GYRO      (0x10)
+#define INV_XYZ_GYRO    (INV_X_GYRO | INV_Y_GYRO | INV_Z_GYRO)
+#define INV_XYZ_ACCEL   (0x08)
+#define INV_XYZ_COMPASS (0x01)
 
 // struct int_param_s {
 // #if defined EMPL_TARGET_MSP430 || defined MOTION_DRIVER_TARGET_MSP430
@@ -45,20 +45,20 @@
 // #endif
 // };
 
-// #define MPU_INT_STATUS_DATA_READY       (0x0001)
-// #define MPU_INT_STATUS_DMP              (0x0002)
-// #define MPU_INT_STATUS_PLL_READY        (0x0004)
-// #define MPU_INT_STATUS_I2C_MST          (0x0008)
-// #define MPU_INT_STATUS_FIFO_OVERFLOW    (0x0010)
-// #define MPU_INT_STATUS_ZMOT             (0x0020)
-// #define MPU_INT_STATUS_MOT              (0x0040)
-// #define MPU_INT_STATUS_FREE_FALL        (0x0080)
-// #define MPU_INT_STATUS_DMP_0            (0x0100)
-// #define MPU_INT_STATUS_DMP_1            (0x0200)
-// #define MPU_INT_STATUS_DMP_2            (0x0400)
-// #define MPU_INT_STATUS_DMP_3            (0x0800)
-// #define MPU_INT_STATUS_DMP_4            (0x1000)
-// #define MPU_INT_STATUS_DMP_5            (0x2000)
+#define MPU_INT_STATUS_DATA_READY       (0x0001)
+#define MPU_INT_STATUS_DMP              (0x0002)
+#define MPU_INT_STATUS_PLL_READY        (0x0004)
+#define MPU_INT_STATUS_I2C_MST          (0x0008)
+#define MPU_INT_STATUS_FIFO_OVERFLOW    (0x0010)
+#define MPU_INT_STATUS_ZMOT             (0x0020)
+#define MPU_INT_STATUS_MOT              (0x0040)
+#define MPU_INT_STATUS_FREE_FALL        (0x0080)
+#define MPU_INT_STATUS_DMP_0            (0x0100)
+#define MPU_INT_STATUS_DMP_1            (0x0200)
+#define MPU_INT_STATUS_DMP_2            (0x0400)
+#define MPU_INT_STATUS_DMP_3            (0x0800)
+#define MPU_INT_STATUS_DMP_4            (0x1000)
+#define MPU_INT_STATUS_DMP_5            (0x2000)
 
 // /* Set up APIs */
 // int mpu_init(struct int_param_s *int_param);
