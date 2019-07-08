@@ -23,9 +23,14 @@
 
 #define i2c_write i2c_write_interface
 // #define i2c_read i2c_read_interface
+#define delay_ms(a) delay_interface(a*1000)
 
 void test2(void) {
 	printf("test 2 \n");
-	i2c_write(0x68, 0x00, 2, unsigned char const *data);
+	unsigned char data;
+	data = 0x00;
+	i2c_write(0x68, 0x00, 2, &data);
+	delay_ms(1000);
+	printf("was that about a second? \n");
 	// i2c_read();
 }

@@ -7,7 +7,7 @@ int i2c_write_interface(unsigned char slave_addr, unsigned char reg_addr,
 	// If successful return 0
 	// In not successful return 1
 
-	printf("I2C Write Test");
+	printf("I2C Write Test \n");
 
 	// int handle;
 	// unsigned char command[2];
@@ -53,3 +53,9 @@ int i2c_write_interface(unsigned char slave_addr, unsigned char reg_addr,
 // 	return 0;
 
 // }
+
+uint32_t delay_interface(uint32_t microseconds){
+	if (gpioInitialise() < 0) return 1;
+	return gpioDelay(microseconds);
+	gpioTerminate();
+}
