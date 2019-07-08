@@ -24,13 +24,22 @@
 #define i2c_write i2c_write_interface
 // #define i2c_read i2c_read_interface
 #define delay_ms(a) delay_interface(a*1000)
+#define get_ms gpioTick_interface
+#define log_i(...)     do {} while (0)
+#define log_e(...)     do {} while (0)
+#define min(a,b) ((a<b)?a:b)
 
 void test2(void) {
 	printf("test 2 \n");
 	unsigned char data;
 	data = 0x00;
 	i2c_write(0x68, 0x00, 2, &data);
-	delay_ms(1000);
-	printf("was that about a second? \n");
+	for(int i = 0; i<5; i++){
+		delay_ms(1000);
+		printf("was that about a second? \n");
+		printf("testing tick: %u \n", get_ms());
+	}
+	printf("min test: %d \n",min(123,524));
+	
 	// i2c_read();
 }

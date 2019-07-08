@@ -56,6 +56,14 @@ int i2c_write_interface(unsigned char slave_addr, unsigned char reg_addr,
 
 uint32_t delay_interface(uint32_t microseconds){
 	if (gpioInitialise() < 0) return 1;
-	return gpioDelay(microseconds);
+	uint32_t delay_microseconds = gpioDelay(microseconds);
 	gpioTerminate();
+	return delay_microseconds;
+}
+
+uint32_t gpioTick_interface(void){
+	if (gpioInitialise() < 0) return 1;
+	uint32_t tick_microseconds = gpioTick();
+	gpioTerminate();
+	return tick_microseconds;
 }
