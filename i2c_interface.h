@@ -10,5 +10,5 @@
 		unsigned char length, unsigned char *data);
 	
 	uint32_t delay_interface(uint32_t microseconds);
-	uint32_t gpioTick_interface(void);
+	uint32_t gpioTick_interface(unsigned long *timestamp);
 #endif  /* #ifndef _I2C_INTERFACE_H_ */

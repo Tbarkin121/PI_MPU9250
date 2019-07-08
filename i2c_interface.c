@@ -51,7 +51,7 @@ uint32_t delay_interface(uint32_t microseconds){
 	return delay_microseconds;
 }
 
-uint32_t gpioTick_interface(void){
+uint32_t gpioTick_interface(unsigned long *timestamp){
 	if (gpioInitialise() < 0) return 1;
 	uint32_t tick_microseconds = gpioTick();
 	gpioTerminate();
