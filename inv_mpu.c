@@ -35,9 +35,11 @@
 
 void test2(void) {
 	printf("test 2 \n");
-	unsigned char data;
-	data = 0x00;
-	i2c_write(0x68, 0x00, 2, &data);
+	unsigned char data[2];
+	data[0] = 0x30;
+	data[1] = 0x60;
+
+	i2c_write(0x68, 0x00, 2, data);
 	for(int i = 0; i<5; i++){
 		delay_ms(1000);
 		printf("was that about a second? \n");

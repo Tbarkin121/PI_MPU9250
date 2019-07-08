@@ -4,7 +4,7 @@
 #define _I2C_INTERFACE_H_
 
 	int i2c_write_interface(unsigned char slave_addr, unsigned char reg_addr, 
-		unsigned char length, unsigned char const *data);
+		unsigned char length, unsigned char *data);
 
 	// int i2c_read_interface(unsigned char slave_addr, unsigned char reg_addr, 
 	// 	unsigned char length, unsigned char *data);

@@ -3,7 +3,7 @@
 #include "pigpio.h"
 
 int i2c_write_interface(unsigned char slave_addr, unsigned char reg_addr, 
-		unsigned char length, unsigned char const *data){
+		unsigned char length, unsigned char *data){
 	// If successful return 0
 	// In not successful return 1
 
@@ -20,7 +20,7 @@ int i2c_write_interface(unsigned char slave_addr, unsigned char reg_addr,
 	handle = i2cOpen(1, slave_addr, 0);
 
 	// i2cWriteDevice(handle, data, length);
-	i2cWriteI2CBlockData(handle, reg_addr, *data, length)
+	i2cWriteI2CBlockData(handle, reg_addr, data, length);
 
 	i2cClose(handle);
 	gpioTerminate();
