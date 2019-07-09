@@ -11,7 +11,7 @@
 #include "stdio.h"
 
 #include "main.h"
-#include "inv_mpu_test.h"
+#include "inv_mpu.h"
 
 void test(void) {
     printf("test 1 \n");
