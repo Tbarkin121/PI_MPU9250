@@ -66,10 +66,23 @@ int main(void)
  	if (result) {
     	printf("Could not initialize gyro.\n");
 	}
+	mpu_set_sensors(INV_XYZ_GYRO | INV_XYZ_ACCEL | INV_XYZ_COMPASS);
+	mpu_configure_fifo(INV_XYZ_GYRO | INV_XYZ_ACCEL);
+    mpu_set_sample_rate(DEFAULT_MPU_HZ);
+    mpu_set_compass_sample_rate(1000 / COMPASS_READ_MS);
 
-	short accel_data[3];
-	unsigned long time_stamp;
-	int mpu_get_accel_reg(accel_data, time_stamp);
-	printf("Accel Data? %d, %d, %d \n",accel_data[0],accel_data[1],accel_data[2]);
+    mpu_get_sample_rate(&gyro_rate);
+    mpu_get_gyro_fsr(&gyro_fsr);
+    mpu_get_accel_fsr(&accel_fsr);
+    mpu_get_compass_fsr(&compass_fsr);
+    printf("Sample Rate %d",gyro_rate)
+    printf("Gyro fsr %d",gyro_fsr)
+    printf("Accel fsr %d",accel_fsr)
+    printf("Compas fsr %d",compass_fsr)
+    
+	// short accel_data[3];
+	// unsigned long time_stamp;
+	// int mpu_get_accel_reg(accel_data, time_stamp);
+	// printf("Accel Data? %d, %d, %d \n",accel_data[0],accel_data[1],accel_data[2]);
 
 }
