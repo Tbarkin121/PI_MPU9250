@@ -13,7 +13,7 @@
 #include "main.h"
 #include "inv_mpu.h"
 
-void test(void) {
+void test_fun(void) {
     printf("test 1 \n");
 }
 // void test2(void) {
@@ -22,7 +22,5 @@ void test(void) {
 
 int main(void)
 {
-	test();
-	test2();
-	// printf('%d',test());
+	test_fun();
 }

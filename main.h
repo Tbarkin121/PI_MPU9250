@@ -28,7 +28,7 @@
 // #include "discover_board.h"
 #include <stdio.h>
 
-void test(void);
+void test_fun(void);
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
