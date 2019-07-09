@@ -55,5 +55,6 @@ uint32_t gpioTick_interface(unsigned long *timestamp){
 	if (gpioInitialise() < 0) return 1;
 	uint32_t tick_microseconds = gpioTick();
 	gpioTerminate();
+	timestamp = tick_microseconds*1000;
 	return tick_microseconds;
 }

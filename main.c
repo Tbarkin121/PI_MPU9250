@@ -23,4 +23,15 @@ void test_fun(void) {
 int main(void)
 {
 	test_fun();
+
+	inv_error_t result;
+    unsigned char accel_fsr,  new_temp = 0;
+    unsigned short gyro_rate, gyro_fsr;
+    unsigned long timestamp;
+    struct int_param_s int_param;
+
+	result = mpu_init(&int_param);
+ 	if (result) {
+    	MPL_LOGE("Could not initialize gyro.\n");
+	}
 }
