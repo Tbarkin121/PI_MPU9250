@@ -66,4 +66,9 @@ int main(void)
  	if (result) {
     	printf("Could not initialize gyro.\n");
 	}
+
+	unsigned char accel_data[6];
+    unsigned long time_stamp;
+	int mpu_get_accel_reg(short &accel_data, &time_stamp);
+	
 }
