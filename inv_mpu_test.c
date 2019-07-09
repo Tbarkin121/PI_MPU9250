@@ -37,6 +37,7 @@ void test2(void) {
 	printf("test 2 \n");
 	unsigned char data_write[2];
 	unsigned char data_read[2];
+	unsigned long timestamp = 0;
 	data_write[0] = 0x30;
 	data_write[1] = 0x40;
 
@@ -47,7 +48,7 @@ void test2(void) {
 	for(int i = 0; i<5; i++){
 		delay_ms(1000);
 		printf("was that about a second? \n");
-		printf("testing tick: %u \n", get_ms());
+		printf("testing tick: %u \n", get_ms(&timestamp));
 		log_i("log_i test\n");
 		log_e("log_e test\n");
 	}
