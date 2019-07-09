@@ -64,6 +64,6 @@ int main(void)
 
 	result = mpu_init(&int_param);
  	if (result) {
-    	MPL_LOGE("Could not initialize gyro.\n");
+    	printf("Could not initialize gyro.\n");
 	}
 }
