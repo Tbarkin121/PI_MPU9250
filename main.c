@@ -13,7 +13,7 @@
 #include "main.h"
 #include "inv_mpu.h"
 #include "mltypes.h"
-
+#include "i2c_interface.h"
 /* Private typedef -----------------------------------------------------------*/
 /* Data read from MPL. */
 #define PRINT_ACCEL     (0x01)
@@ -36,7 +36,7 @@ volatile uint32_t hal_timestamp = 0;
 #define NO_MOTION       (1)
 
 /* Starting sampling rate. */
-#define DEFAULT_MPU_HZ  (20)
+#define DEFAULT_MPU_HZ  (100)
 
 #define FLASH_SIZE      (512)
 #define FLASH_MEM_START ((void*)0x1800)
@@ -59,13 +59,15 @@ int main(void)
 	inv_error_t result;
     unsigned char accel_fsr,  new_temp = 0;
     unsigned short gyro_rate, gyro_fsr;
+    unsigned char new_compass = 0;
+    unsigned short compass_fsr;
     unsigned long timestamp;
     struct int_param_s int_param;
 
-	result = mpu_init(&int_param);
- 	if (result) {
-    	printf("Could not initialize gyro.\n");
-	}
+//	result = mpu_init(&int_param);
+// 	if (result) {
+//    	printf("Could not initialize gyro.\n");
+//	}
 	mpu_set_sensors(INV_XYZ_GYRO | INV_XYZ_ACCEL | INV_XYZ_COMPASS);
 	mpu_configure_fifo(INV_XYZ_GYRO | INV_XYZ_ACCEL);
     mpu_set_sample_rate(DEFAULT_MPU_HZ);
@@ -75,14 +77,16 @@ int main(void)
     mpu_get_gyro_fsr(&gyro_fsr);
     mpu_get_accel_fsr(&accel_fsr);
     mpu_get_compass_fsr(&compass_fsr);
-    printf("Sample Rate %d",gyro_rate)
-    printf("Gyro fsr %d",gyro_fsr)
-    printf("Accel fsr %d",accel_fsr)
-    printf("Compas fsr %d",compass_fsr)
-    
-	// short accel_data[3];
-	// unsigned long time_stamp;
-	// int mpu_get_accel_reg(accel_data, time_stamp);
-	// printf("Accel Data? %d, %d, %d \n",accel_data[0],accel_data[1],accel_data[2]);
+    printf("Sample Rate %d\n",gyro_rate);
+    printf("Gyro range %d\n",gyro_fsr);
+    printf("Accel range %d\n",accel_fsr);
+    printf("Compass range %d\n",compass_fsr);
 
+    short accel_data[3];
+    for(int i = 0; i<10; i++){
+        mpu_get_accel_reg(accel_data, &timestamp);
+        printf("%d, %d, %d \n",accel_data[0],accel_data[1],accel_data[2]);
+//        printf("Accel Data? %d, %d, %d \n",accel_data[0],accel_data[1],accel_data[2]);
+        delay_interface(1000);
+    }
 }

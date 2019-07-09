@@ -7,7 +7,7 @@ int i2c_write_interface(unsigned char slave_addr, unsigned char reg_addr,
 	// If successful return 0
 	// In not successful return 1
 
-	printf("I2C Write Test \n");
+//	printf("I2C Write Test \n");
 
 	int handle;
 
@@ -28,7 +28,7 @@ int i2c_read_interface(unsigned char slave_addr, unsigned char reg_addr,
 	// If successful return 0
 	// In not successful return 1
 
-	printf("I2C Read Test \n");
+//	printf("I2C Read Test \n");
 
 	int handle;
 	// unsigned char value[4];
@@ -55,6 +55,6 @@ uint32_t gpioTick_interface(unsigned long *timestamp){
 	if (gpioInitialise() < 0) return 1;
 	uint32_t tick_microseconds = gpioTick();
 	gpioTerminate();
-	timestamp = tick_microseconds*1000;
+	timestamp = (unsigned long)tick_microseconds*1000;
 	return tick_microseconds;
 }
