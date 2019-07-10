@@ -2,6 +2,16 @@
 #include "stdio.h"
 #include "pigpio.h"
 
+int pigpio_init(void){
+	if (gpioInitialise() < 0) return 1;
+	handle = i2cOpen(1, slave_addr, 0);
+	return 0;
+}
+int pigpio_deinit(void){
+	i2cClose(handle);
+	gpioTerminate();
+}
+
 int i2c_write_interface(unsigned char slave_addr, unsigned char reg_addr, 
 		unsigned char length, unsigned char *data){
 	// If successful return 0
@@ -9,16 +19,8 @@ int i2c_write_interface(unsigned char slave_addr, unsigned char reg_addr,
 
 //	printf("I2C Write Test \n");
 
-	int handle;
-
-	if (gpioInitialise() < 0) return 1;
-	handle = i2cOpen(1, slave_addr, 0);
-
 	// i2cWriteDevice(handle, data, length);
 	i2cWriteI2CBlockData(handle, reg_addr, data, length);
-
-	i2cClose(handle);
-	gpioTerminate();
 
 	return 0;
 }
@@ -30,16 +32,9 @@ int i2c_read_interface(unsigned char slave_addr, unsigned char reg_addr,
 
 //	printf("I2C Read Test \n");
 
-	int handle;
 	// unsigned char value[4];
 
-	if (gpioInitialise() < 0) return 1;
-	handle = i2cOpen(1, slave_addr, 0);
-
 	i2cReadI2CBlockData(handle, reg_addr, data, length);
-
-	i2cClose(handle);
-	gpioTerminate();
 
 	return 0;
 }
