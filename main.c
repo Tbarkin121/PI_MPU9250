@@ -98,7 +98,7 @@ int main(void)
     }
     for(int i = 0; i<10; i++){
         printf("Test %d\n",i);
-        delay_interface(1);
+        //delay_interface(1);
     }
     pigpio_deinit();
 }
