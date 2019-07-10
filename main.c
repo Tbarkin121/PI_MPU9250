@@ -83,10 +83,20 @@ int main(void)
     printf("Compass range %d\n",compass_fsr);
 
     short accel_data[3];
+    short gyro_data[3];
+    short compass_data[3];
     for(int i = 0; i<10; i++){
         mpu_get_accel_reg(accel_data, &timestamp);
-        printf("%d, %d, %d \n",accel_data[0],accel_data[1],accel_data[2]);
+	mpu_get_gyro_reg(gyro_data, &timestamp);
+	mpu_get_compass_reg(compass_data, &timestamp);
+        printf("Accel:   %d, %d, %d \n",accel_data[0],accel_data[1],accel_data[2]);
+        printf("Gyro:    %d, %d, %d \n",gyro_data[0],gyro_data[1],gyro_data[2]);
+        printf("Compass: %d, %d, %d \n",compass_data[0],compass_data[1],compass_data[2]);
 //        printf("Accel Data? %d, %d, %d \n",accel_data[0],accel_data[1],accel_data[2]);
-        delay_interface(1000);
+        delay_interface(1);
+    }
+    for(int i = 0; i<10; i++){
+        printf("Test %d\n",i);
+        delay_interface(1);
     }
 }
