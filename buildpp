@@ -1,0 +1,7 @@
+#!/bin/bash
+
+#gcc main.c inv_mpu.c i2c_interface.c -o test_main -lpigpio -lpthread
+#./test_main
+
+g++ test.cpp -o testpp
+./testpp
