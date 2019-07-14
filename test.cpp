@@ -1,6 +1,7 @@
 #include <iostream>
 
 extern "C" {
+	#include "stdio.h"
     #include "inv_mpu_test.h"
 }
 
