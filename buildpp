@@ -1,8 +1,9 @@
 #!/bin/bash
 
 g++ -c -o test.o test.cpp
-gcc -c -o interface.o inv_mpu_test.c i2c_interface.c -lpigpio -lpthread
+gcc -c -o inv_mpu_test.o inv_mpu_test.c
+gcc -c -o i2c_interface.o i2c_interface.c
 #linking c++ and c code together
-g++ -o myprogram test.o interface.o
+g++ -o myprogram test.o inv_mpu_test.o i2c_interface.o -lpigpio -lpthread
 
 ./myprogram
