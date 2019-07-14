@@ -15,7 +15,8 @@ int i2c_write_interface(unsigned char slave_addr, unsigned char reg_addr,
 	handle = i2cOpen(1, slave_addr, 0);
 
 	// i2cWriteDevice(handle, data, length);
-	i2cWriteI2CBlockData(handle, reg_addr, data, length);
+	char *data_ = (char *)data;
+	i2cWriteI2CBlockData(handle, reg_addr, data_, length);
 
 	i2cClose(handle);
 	gpioTerminate();
@@ -35,8 +36,8 @@ int i2c_read_interface(unsigned char slave_addr, unsigned char reg_addr,
 
 	if (gpioInitialise() < 0) return 1;
 	handle = i2cOpen(1, slave_addr, 0);
-
-	i2cReadI2CBlockData(handle, reg_addr, data, length);
+	char *data_ = (char *)data;
+	i2cReadI2CBlockData(handle, reg_addr, data_, length);
 
 	i2cClose(handle);
 	gpioTerminate();
