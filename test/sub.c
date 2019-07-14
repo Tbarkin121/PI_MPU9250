@@ -2,5 +2,5 @@
 #include "sub.h"
 
 void test_fun(void){
-	printf("Test Fun c \n");
+	printf("Test Function from c \n");
 }

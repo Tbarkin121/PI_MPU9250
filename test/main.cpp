@@ -9,3 +9,4 @@ int main(int argc, char *argv[])
 	std::cout<<"Test c++"<<std::endl;
 	test_fun();
 }
+

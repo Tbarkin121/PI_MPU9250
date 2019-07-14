@@ -11,3 +11,4 @@ gcc -c -o sub.o sub.c
 g++ -o myprogram main.o sub.o
 # link them together, using the C++ library libmycpplib:
 #g++ -oprogram otest.o oinv_mpu_test.o -lmycpplib
+./myprogram
