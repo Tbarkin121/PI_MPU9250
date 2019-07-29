@@ -3,7 +3,6 @@
 #ifndef _I2C_INTERFACE_H_
 #define _I2C_INTERFACE_H_
 	int handle;
-	bool i2c_initalized = false;
 
 	int i2c_write_interface(unsigned char slave_addr, unsigned char reg_addr, 
 		unsigned char length, unsigned char *data);
