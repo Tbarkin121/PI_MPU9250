@@ -3,13 +3,20 @@
 #include "pigpio.h"
 
 int pigpio_init(unsigned char slave_addr){
-	if (gpioInitialise() < 0) return 1;
-	handle = i2cOpen(1, slave_addr, 0);
+	if(!i2c_initalized){
+		if (gpioInitialise() < 0) return 1;
+		handle = i2cOpen(1, slave_addr, 0);
+		i2c_initalized = true;
+	}
 	return 0;
 }
 int pigpio_deinit(void){
-	i2cClose(handle);
-	gpioTerminate();
+	if(i2c_initalized){
+		i2cClose(handle);
+		gpioTerminate();
+		i2c_initalized = false;
+	}
+	return 0;
 }
 
 int i2c_write_interface(unsigned char slave_addr, unsigned char reg_addr, 
@@ -24,7 +31,7 @@ int i2c_write_interface(unsigned char slave_addr, unsigned char reg_addr,
 
 	i2cWriteI2CBlockData(handle, reg_addr, data, length);
 
-	pigpio_deinit();
+	// pigpio_deinit();
 
 	i2cClose(h);
 	gpioTerminate();
@@ -44,7 +51,7 @@ int i2c_read_interface(unsigned char slave_addr, unsigned char reg_addr,
 
 	i2cReadI2CBlockData(handle, reg_addr, data, length);
 
-	pigpio_deinit();
+	// pigpio_deinit();
 
 	return 0;
 }

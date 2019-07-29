@@ -69,6 +69,7 @@ int main(void)
 // 	if (result) {
 //    	printf("Could not initialize gyro.\n");
 //	}
+    pigpio_init(0x68);
 	mpu_set_sensors(INV_XYZ_GYRO | INV_XYZ_ACCEL | INV_XYZ_COMPASS);
 	mpu_configure_fifo(INV_XYZ_GYRO | INV_XYZ_ACCEL);
     mpu_set_sample_rate(DEFAULT_MPU_HZ);
@@ -100,5 +101,5 @@ int main(void)
         printf("Test %d\n",i);
         //delay_interface(1);
     }
-//    pigpio_deinit();
+   pigpio_deinit();
 }
