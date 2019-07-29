@@ -20,11 +20,11 @@ int i2c_write_interface(unsigned char slave_addr, unsigned char reg_addr,
 //	printf("I2C Write Test \n");
 
 	// i2cWriteDevice(handle, data, length);
-	int h;
-	if (gpioInitialise() < 0) return 1;
-	h = i2cOpen(1, slave_addr, 0);
+	pigpio_init(slave_addr);
 
-	i2cWriteI2CBlockData(h, reg_addr, data, length);
+	i2cWriteI2CBlockData(handle, reg_addr, data, length);
+
+	pigpio_deinit();
 
 	i2cClose(h);
 	gpioTerminate();
@@ -40,14 +40,11 @@ int i2c_read_interface(unsigned char slave_addr, unsigned char reg_addr,
 //	printf("I2C Read Test \n");
 
 	// unsigned char value[4];
-	int h;
-        if (gpioInitialise() < 0) return 1;
-        h = i2cOpen(1, slave_addr, 0);
+	pigpio_init(slave_addr);
 
-	i2cReadI2CBlockData(h, reg_addr, data, length);
+	i2cReadI2CBlockData(handle, reg_addr, data, length);
 
-	i2cClose(h);
-        gpioTerminate();
+	pigpio_deinit();
 
 	return 0;
 }

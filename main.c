@@ -94,7 +94,7 @@ int main(void)
         printf("Gyro:    %d, %d, %d \n",gyro_data[0],gyro_data[1],gyro_data[2]);
         printf("Compass: %d, %d, %d \n",compass_data[0],compass_data[1],compass_data[2]);
 //        printf("Accel Data? %d, %d, %d \n",accel_data[0],accel_data[1],accel_data[2]);
-        delay_interface(1);
+//        delay_interface(1);
     }
     for(int i = 0; i<10; i++){
         printf("Test %d\n",i);
