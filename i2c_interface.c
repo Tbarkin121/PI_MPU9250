@@ -3,17 +3,15 @@
 #include "pigpio.h"
 
 int pigpio_init(unsigned char slave_addr){
-	print('PIGPIO INIT\n');
+	printf("PIGPIO INIT\n");
 	if (gpioInitialise() < 0) return 1;
 	handle = i2cOpen(1, slave_addr, 0);
-	i2c_initalized = true;
 	return 0;
 }
 int pigpio_deinit(void){
-	print('PIGPIO DEINIT\n');
+	printf("PIGPIO DEINIT\n");
 	i2cClose(handle);
 	gpioTerminate();
-	i2c_initalized = false;
 	return 0;
 }
 
