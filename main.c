@@ -55,7 +55,7 @@ void test_fun(void) {
 int main(void)
 {
 	test_fun();
-	pigpio_init(0x68);
+//	printf("result of pigpio_init : %d \n",pigpio_init(0x68));
 
 	inv_error_t result;
     unsigned char accel_fsr,  new_temp = 0;
@@ -100,5 +100,5 @@ int main(void)
         printf("Test %d\n",i);
         //delay_interface(1);
     }
-    pigpio_deinit();
+//    pigpio_deinit();
 }
