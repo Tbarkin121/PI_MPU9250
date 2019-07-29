@@ -55,7 +55,7 @@ void test_fun(void) {
 int main(void)
 {
 	test_fun();
-	pigpio_init();
+	pigpio_init(0x68);
 
 	inv_error_t result;
     unsigned char accel_fsr,  new_temp = 0;

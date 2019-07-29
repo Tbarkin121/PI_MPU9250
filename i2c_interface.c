@@ -2,7 +2,7 @@
 #include "stdio.h"
 #include "pigpio.h"
 
-int pigpio_init(void){
+int pigpio_init(unsigned char slave_addr){
 	if (gpioInitialise() < 0) return 1;
 	handle = i2cOpen(1, slave_addr, 0);
 	return 0;

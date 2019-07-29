@@ -13,7 +13,7 @@
 	uint32_t delay_interface(uint32_t microseconds);
 	uint32_t gpioTick_interface(unsigned long *timestamp);
 
-	int pigpio_init(void);
+	int pigpio_init(unsigned char slave_addr);
 	int pigpio_deinit(void);
 
 
